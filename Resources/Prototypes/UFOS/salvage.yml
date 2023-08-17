@@ -1,0 +1,14 @@
+- type: entity
+  parent: SalvageMagnet
+  id: SuperSalvageMagnet
+  name: super salvage magnet
+  description: A salvage magnet, but keeps debris longer.
+  components:
+  - type: SalvageMagnet
+    baseAttachingTime: 45
+    holdTime: 1200
+    detachingTime: 60
+    baseCooldownTime: 70
+    offsetRadiusMax: 32
+  - type: ApcPowerReceiver
+    powerLoad: 1000

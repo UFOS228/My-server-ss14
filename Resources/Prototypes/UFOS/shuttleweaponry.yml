@@ -1,0 +1,168 @@
+- type: entity
+  id: BaseShuttleWeapon
+  name: Base Shuttle weapon
+  parent: ConstructibleMachine
+  description: A shuttle weaponry.
+  prefix: "[ShuttleWeaponry]"
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 400
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: UFOS/shuttlerailgun.rsi
+    layers:
+    - state: emitter # Corvax-Resprite
+    - state: beam
+      shader: unshaded
+      visible: false
+      map: ["enum.EmitterVisualLayers.Lights"]
+    - state: unlock # Corvax-Resprite
+      shader: unshaded
+#      visible: false # Corvax-Resprite
+      map: ["enum.StorageVisualLayers.Lock"]
+  - type: Emitter
+    baseFireBurstDelayMin: 0
+    baseFireBurstDelayMax: 0
+    baseFireInterval: 1
+    boltType: ShuttleRailgunBolt
+  - type: Gun
+    showExamineText: false
+    projectileSpeed: 25
+    fireRate: 10 #just has to be fast enough to keep up with upgrades
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/UFOS/railgunShoot.ogg
+  - type: PowerConsumer
+    voltage: Medium
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: MVPower
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 400
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/metalbreak.ogg
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 5
+              max: 5
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: Anchorable
+  - type: Pullable
+  - type: Rotatable
+  - type: Appearance
+  - type: Lock
+    locked: false
+  - type: AccessReader
+    access: [[ "Security" ]]
+  - type: Machine
+    board: ShuttleRailgunCircuitboard
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - On
+      - Off
+      - Toggle
+
+- type: entity
+  id: ShuttleRailgun
+  name: Shuttle railgun
+  parent: BaseShuttleWeapon
+  description: A shuttle weaponry.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 4
+    intensitySlope: 1
+    totalIntensity: 20
+    maxTileBreak: 0
+  - type: Emitter
+    baseFireInterval: 6
+    boltType: ShuttleRailgunBolt
+  - type: Gun
+    projectileSpeed: 20
+    soundGunshot:
+      volume: 10
+      path: /Audio/UFOS/railgunShoot.ogg
+  - type: Sprite
+    sprite: UFOS/shuttlerailgun.rsi
+
+- type: entity
+  id: ShuttleSpeedBlaster
+  name: Shuttle speed blaster
+  parent: BaseShuttleWeapon
+  description: A shuttle weaponry, but shoot faster.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Emitter
+    baseFireInterval: 0.8
+    boltType: ShuttleSpeedBolt
+  - type: Gun
+    projectileSpeed: 30
+    soundGunshot:
+      path: /Audio/UFOS/speedgunShoot.ogg
+  - type: Sprite
+    sprite: UFOS/shuttlespeedgun.rsi
+
+- type: entity
+  id: ShuttleLaser
+  name: Shuttle laser
+  parent: BaseShuttleWeapon
+  description: A shuttle weaponry, but laser.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Emitter
+    baseFireInterval: 0.5
+    boltType: ShuttleLaserBolt
+  - type: Gun
+    projectileSpeed: 80
+    soundGunshot:
+      volume: 10
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: Sprite
+    sprite: UFOS/shuttlelaser.rsi

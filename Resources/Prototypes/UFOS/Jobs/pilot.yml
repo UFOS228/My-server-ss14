@@ -1,0 +1,81 @@
+- type: job
+  id: SecurityPilot
+  name: job-name-security-pilot
+  description: job-description-security-pilot
+  playTimeTracker: JobSecurityOfficer
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 40000
+  startingGear: SecurityPilotGear
+  icon: "JobIconSecurityOfficer"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+
+- type: startingGear
+  id: SecurityPilotGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    back: ClothingBackpackSecurityFilled
+    shoes: ClothingShoesBootsJackSec # Corvax-Resprite
+    eyes: ClothingEyesGlassesSecurity
+    head: ClothingHeadHelmetBasic
+    outerClothing: ClothingOuterVestArmorSec # Corvax-Resprite
+    id: PilotPDA
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltUtilityEngineering
+    pocket1: HandheldGPSBasic
+  innerclothingskirt: ClothingUniformJumpskirtSec
+  satchel: ClothingBackpackSatchelSecurityFilled
+  duffelbag: ClothingBackpackDuffelSecurityFilled
+
+- type: entity
+  id: SpawnPointSecurityPilot
+  parent: SpawnPointJobBase
+  name: securitypilot
+  components:
+  - type: SpawnPoint
+    job_id: SecurityPilot
+  - type: Sprite
+    layers:
+      - state: green
+      - state: security_officer
+
+- type: statusIcon
+  parent: JobIcon
+  id: SecurityPilot
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: SecurityOfficer
+
+- type: entity
+  parent: BasePDA
+  id: PilotPDA
+  name: pilot PDA
+  description: Red to hide the stains of passenger blood.
+  components:
+  - type: Pda
+    id: SecurityPilotIDCard
+    state: pda-security
+  - type: PdaBorderColor
+    borderColor: "#D45048"
+  - type: Icon
+    state: pda-security
+
+- type: entity
+  parent: IDCardStandard
+  id: SecurityPilotIDCard
+  name: security ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idsecurityofficer
+  - type: PresetIdCard
+    job: SecurityPilot

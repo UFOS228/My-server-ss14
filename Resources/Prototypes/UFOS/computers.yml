@@ -1,0 +1,9 @@
+#Station Radar
+- type: entity
+  parent: ComputerRadar
+  id: StationComputerRadar
+  name: mass scanner computer
+  description: A computer for detecting nearby bodies, displaying them by position and mass.
+  components:
+  - type: RadarConsole
+    maxRange: 3000

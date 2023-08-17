@@ -1,0 +1,110 @@
+- type: entity
+  name: base shuttle bolt
+  id: BaseShuttleWeaponBolt
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Sprite
+#    color: "#ffff33" # Corvax-Resprite
+    sprite: UFOS/shuttlerailgun.rsi
+    layers:
+      - state: projectile
+        shader: unshaded
+  - type: Ammo
+    muzzleFlash: null
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Projectile
+    damage:
+      types:
+        Heat: 20
+        Blunt: 200
+        Structural: 200
+    soundHit:
+      path: "/Audio/Weapons/Guns/Hits/energy_metal1.ogg"
+  - type: Tag
+    tags:
+    - EmitterBolt
+  - type: TimedDespawn
+    lifetime: 3
+
+
+- type: entity
+  name: shuttle railgun bolt
+  id: ShuttleRailgunBolt
+  parent: BaseShuttleWeaponBolt
+  noSpawn: true
+  components:
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 20
+    intensitySlope: 4
+    totalIntensity: 100
+    maxTileBreak: 1
+  - type: Sprite
+    sprite: UFOS/shuttlerailgun.rsi
+    layers:
+      - state: projectile
+        shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 20
+        Blunt: 200
+        Structural: 200
+    soundHit:
+      volume: 10
+      path: "/Audio/Weapons/plasma_cutter.ogg"
+
+
+- type: entity
+  name: shuttle speed bolt
+  id: ShuttleSpeedBolt
+  parent: BaseShuttleWeaponBolt
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: UFOS/shuttlespeedgun.rsi
+    layers:
+      - state: projectile
+        shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Heat: 50
+        Structural: 50
+    soundHit:
+      path: "/Audio/Weapons/Guns/Hits/energy_metal1.ogg"
+
+- type: entity
+  name: shuttle laser
+  id: ShuttleLaserBolt
+  parent: BaseShuttleWeaponBolt
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: UFOS/shuttlelaser.rsi
+    layers:
+      - state: projectile
+        shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Heat: 25
+        Structural: 20
+    soundHit:
+      path: "/Audio/Weapons/Guns/Hits/energy_metal1.ogg"
