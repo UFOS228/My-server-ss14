@@ -1,0 +1,24 @@
+- type: gameMap
+  id: Survival
+  mapName: 'Survival'
+  mapPath: /Maps/UFOS/survival.yml
+  minPlayers: 1
+  maxPlayers: 10
+  stations:
+    Survival:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} SOS {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '...---...'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/mining.yml
+        - type: StationJobs
+          #overflowJobs:
+            #- Passenger
+          availableJobs:
+            StationEngineer: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 1 ]
+            #Passenger: [ -1, -1 ]
