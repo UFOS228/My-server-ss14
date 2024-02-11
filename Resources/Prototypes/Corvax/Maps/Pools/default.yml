@@ -1,24 +1,4 @@
 - type: gameMapPool
   id: CorvaxDefaultMapPool
   maps:
-  - CorvaxDelta
-  - CorvaxAvrite
-  - CorvaxSpectrum
-  - CorvaxGate
   - CorvaxSilly
-  - CorvaxOutpost
-  - CorvaxAstra
-  - CorvaxGelta
-  - CorvaxMaus
-  - CorvaxIshimura
-  - Bagel
-  - Box
-  - Cluster
-  - Core
-  - Fland
-  - Marathon
-  - Meta
-  - Omega
-  - Origin
-  - Saltern
-  - Packed
