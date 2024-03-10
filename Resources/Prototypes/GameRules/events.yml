@@ -153,7 +153,7 @@
       params:
         volume: -4
     earliestStart: 10
-    minimumPlayers: 5
+    minimumPlayers: 4
     weight: 10
     startDelay: 20
   - type: GasLeakRule
@@ -179,7 +179,7 @@
   - type: StationEvent
     earliestStart: 30
     weight: 7.5
-    minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
+    minimumPlayers: 4 #Enough to hopefully have at least one engineering guy
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
     startAudio:
@@ -327,7 +327,7 @@
       params:
         volume: -4
     earliestStart: 15
-    minimumPlayers: 15
+    minimumPlayers: 4
     weight: 5
     startDelay: 50
     duration: 60
@@ -344,7 +344,7 @@
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 15
-    minimumPlayers: 15
+    minimumPlayers: 4
     weight: 5
     duration: 60
   - type: VentCrittersRule
@@ -367,7 +367,7 @@
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 20
-    minimumPlayers: 15
+    minimumPlayers: 4
     weight: 5
     duration: 60
   - type: VentCrittersRule
@@ -390,7 +390,7 @@
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 20
-    minimumPlayers: 15
+    minimumPlayers: 4
     weight: 5
     duration: 60
   - type: VentCrittersRule

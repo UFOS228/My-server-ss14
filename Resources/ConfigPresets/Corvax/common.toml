@@ -1,5 +1,8 @@
-﻿[net]
-tickrate = 30
+﻿[atmos]
+space_wind = true
+
+[net]
+tickrate = 60
 
 [netres]
 limit = 25.0
@@ -15,7 +18,7 @@ appeal = "https://discord.ss14.ru"
 maximum_width = 26
 
 [game]
-lobbyduration = 360
+lobbyduration = 70
 secret_weight_prototype = "CorvaxSecretDefault"
 
 [server]
