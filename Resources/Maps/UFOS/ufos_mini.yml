@@ -255,10 +255,12 @@ entities:
             0: 65535
           -3,1:
             0: 2815
+            1: 61440
           -2,0:
             0: 65535
           -2,1:
             0: 35839
+            1: 28672
           -1,1:
             0: 24575
           -3,-5:
@@ -359,6 +361,7 @@ entities:
             0: 65535
           -4,1:
             0: 2815
+            1: 61440
           -4,-6:
             0: 65535
           -4,-5:
@@ -420,14 +423,17 @@ entities:
             0: 65535
           -7,1:
             0: 4863
+            1: 49152
           -6,0:
             0: 65535
           -6,1:
             0: 1023
+            1: 61440
           -5,0:
             0: 65535
           -5,1:
             0: 2559
+            1: 61440
           -8,-3:
             0: 61440
           -8,-2:
@@ -637,8 +643,8 @@ entities:
           id: docking55764
           localAnchorB: 0.5,1
           localAnchorA: -4.5,-41
-          damping: 85.16676
-          stiffness: 764.4551
+          damping: 85.1698
+          stiffness: 764.4824
     - type: BecomesStation
       id: UfosMini
     - type: NavMap
@@ -696,8 +702,8 @@ entities:
           id: docking55764
           localAnchorB: 0.5,1
           localAnchorA: -4.5,-41
-          damping: 85.16676
-          stiffness: 764.4551
+          damping: 85.1698
+          stiffness: 764.4824
   - uid: 4630
     components:
     - type: MetaData
@@ -3055,14 +3061,14 @@ entities:
   - uid: 2444
     components:
     - type: Transform
-      pos: -10.542387,-12.1544075
+      pos: -10.724929,-11.437341
       parent: 2
 - proto: BoxFolderRed
   entities:
   - uid: 2445
     components:
     - type: Transform
-      pos: -10.542387,-12.543296
+      pos: -10.266595,-11.423451
       parent: 2
 - proto: BoxLightMixed
   entities:
@@ -10544,6 +10550,14 @@ entities:
     - type: Transform
       pos: -22.5,1.5
       parent: 2
+- proto: ComputerCargoBounty
+  entities:
+  - uid: 2349
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,-17.5
+      parent: 2
 - proto: ComputerCargoOrders
   entities:
   - uid: 88
@@ -10551,11 +10565,31 @@ entities:
     - type: Transform
       pos: 2.5,5.5
       parent: 2
+  - uid: 2346
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,-17.5
+      parent: 2
   - uid: 2347
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -21.5,-22.5
+      parent: 2
+  - uid: 2442
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -10.5,-12.5
+      parent: 2
+- proto: ComputerCargoShuttle
+  entities:
+  - uid: 4649
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -16.5,-17.5
       parent: 2
 - proto: ComputerComms
   entities:
@@ -10616,6 +10650,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -21.5,-21.5
+      parent: 2
+- proto: ComputerShuttleCargo
+  entities:
+  - uid: 4650
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -17.5,-17.5
       parent: 2
 - proto: ComputerShuttleSalvage
   entities:
@@ -10700,11 +10742,6 @@ entities:
       - 2673
 - proto: CrateEmptySpawner
   entities:
-  - uid: 2341
-    components:
-    - type: Transform
-      pos: -16.5,-19.5
-      parent: 2
   - uid: 2342
     components:
     - type: Transform
@@ -21849,20 +21886,15 @@ entities:
       parent: 2
 - proto: OreBox
   entities:
-  - uid: 2346
+  - uid: 2341
     components:
     - type: Transform
-      pos: -17.5,-17.5
-      parent: 2
-  - uid: 2349
-    components:
-    - type: Transform
-      pos: -16.5,-17.5
+      pos: -16.5,-19.5
       parent: 2
   - uid: 2350
     components:
     - type: Transform
-      pos: -15.5,-17.5
+      pos: -10.5,-22.5
       parent: 2
 - proto: OreProcessor
   entities:
@@ -26340,11 +26372,6 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-13.5
-      parent: 2
-  - uid: 2442
-    components:
-    - type: Transform
-      pos: -10.5,-12.5
       parent: 2
   - uid: 2443
     components:
